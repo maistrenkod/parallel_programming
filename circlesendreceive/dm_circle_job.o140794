@@ -1,0 +1,4 @@
+Send info 0. Proccess 0
+Receive info 2. Proccess 0
+Receive info 0, send info 1. Proccess 1
+Receive info 1, send info 2. Proccess 2
