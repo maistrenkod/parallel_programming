@@ -1,0 +1,14 @@
+Time: Thu Apr  7 22:20:49 2022
+From process 0: start
+Time: Thu Apr  7 22:20:49 2022
+From process 0: data recived from process  1 succesfully
+Time: Thu Apr  7 22:20:49 2022
+From process 1: sent to process 0 succesfully 
+Time: Thu Apr  7 22:20:49 2022
+From process 0: data recived from process  2 succesfully
+Time: Thu Apr  7 22:20:49 2022
+From process 2: sent to process 0 succesfully 
+Time: Thu Apr  7 22:20:49 2022
+From process 0: completed. Time 0.1 seconds
+Time: Thu Apr  7 22:20:50 2022
+From process 0: data saved in file: output.txt
