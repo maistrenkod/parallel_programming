@@ -5,6 +5,8 @@
 #include<vector>
 #include<fstream>
 
+using std::chrono::milliseconds;
+
 int N_x = 1000, M_t = 1000;
 
 //линейное
@@ -94,9 +96,11 @@ std::pair<double, double> recive(double** value, MPI_Status& status, int ProcNum
 }
 
 const void curTime() {
-	time_t t;
-	time(&t);
-	std::cout << "Time: " << ctime(&t);
+	auto millisec_since_epoch = duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
+	//time_t t;
+	//time(&t);
+	//std::cout << "Time: " << ctime(&t);
+	std::cout << "Time: " << millisec_since_epoch << endl;
 }
 
 int main(int argc, char* argv[]) {
@@ -112,6 +116,7 @@ int main(int argc, char* argv[]) {
 	t_s = std::clock();
 
 	MPI_Init(&argc, &argv);
+	auto start_time = duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
 	MPI_Comm_rank(MPI_COMM_WORLD, &ProcRank);
 	MPI_Comm_size(MPI_COMM_WORLD, &ProcNum);
 
@@ -256,6 +261,9 @@ int main(int argc, char* argv[]) {
 	}
 
 	delete_matrix<double>(value, M_t);
+
+	auto stop_time = duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
+	std::cout << stop_time - start_time << std::endl;
 
 	MPI_Finalize();
 	return 0;
